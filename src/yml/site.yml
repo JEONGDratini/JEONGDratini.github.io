@@ -1,7 +1,6 @@
-name: Jekflix
-title: Jekflix | A blog theme for Jekyll
-description: Jekflix is a template for Jekyll inspired by Netflix and made by
-  Thiago Rossener.
+name: Dratini's Coding workshop
+title: Dratini's Coding workshop| 미뇽의 코딩공방에 어서오세요~!
+description: Dratiniflix is 
 tags:
   - blog
   - template
@@ -18,7 +17,7 @@ menu:
     url: /contact
   - title: Feed
     url: /feed.xml
-email: youremail@test.com
+email: pw050503@gmail.com
 # See: https://disqus.com/
 disqus_username: disqus_username
 # Contact Form Setting
