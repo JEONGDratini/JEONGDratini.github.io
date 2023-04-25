@@ -1,0 +1,69 @@
+---
+date: 2023-03-27 16:32:00
+layout: post
+title: DevOps&#91;Linux&#93; / TIL
+subtitle: 'nginx를 사용한 정적 웹페이지 호스팅'
+description: nginx를 사용한 정적 웹페이지 호스팅
+image: https://user-images.githubusercontent.com/62793534/234149583-407017c4-4222-4664-a597-aaabb7234c69.png
+optimized_image: https://user-images.githubusercontent.com/62793534/234149583-407017c4-4222-4664-a597-aaabb7234c69.png
+category: DevOps Bootcamp
+tags:
+  - linux
+  - DevOps BootCamp
+author: JEONGDratini
+
+---
+
+ [1057번: 토너먼트
+
+김지민은 N명이 참가하는 스타 토너먼트에 진출했다. 토너먼트는 다음과 같이 진행된다. 일단 N명의 참가자는 번호가 1번부터 N번까지 배정받는다. 그러고 난 후에 서로 인접한 번호끼리 스타를
+
+www.acmicpc.net](https://www.acmicpc.net/problem/1057)
+
+### **문제**
+
+김지민은 N명이 참가하는 스타 토너먼트에 진출했다. 토너먼트는 다음과 같이 진행된다. 일단 N명의 참가자는 번호가 1번부터 N번까지 배정받는다. 그러고 난 후에 서로 인접한 번호끼리 스타를 한다. 이긴 사람은 다음 라운드에 진출하고, 진 사람은 그 라운드에서 떨어진다. 만약 그 라운드의 참가자가 홀수명이라면, 마지막 번호를 가진 참가자는 다음 라운드로 자동 진출한다. 다음 라운드에선 다시 참가자의 번호를 1번부터 매긴다. 이때, 번호를 매기는 순서는 처음 번호의 순서를 유지하면서 1번부터 매긴다. 이 말은 1번과 2번이 스타를 해서 1번이 진출하고, 3번과 4번이 스타를 해서 4번이 진출했다면, 4번은 다음 라운드에서 번호 2번을 배정받는다. 번호를 다시 배정받은 후에 한 명만 남을 때까지 라운드를 계속 한다.
+
+마침 이 스타 대회에 임한수도 참가했다. 김지민은 갑자기 스타 대회에서 우승하는 욕심은 없어지고, 몇 라운드에서 임한수와 대결하는지 궁금해졌다. 일단 김지민과 임한수는 서로 대결하기 전까지 항상 이긴다고 가정한다. 1 라운드에서 김지민의 번호와 임한수의 번호가 주어질 때, 과연 김지민과 임한수가 몇 라운드에서 대결하는지 출력하는 프로그램을 작성하시오.
+
+### **풀이**
+
+스타 토너먼트의 총 라운드 수는 log(총 참가자 수)다.
+
+라운드마다 승리하면 바뀌는 지민이와 한수의 번호를 가지고 비교해 만나는 라운드를 구하면 쉽게 풀 수 있다.
+
+**소스코드**
+
+더보기
+
+```
+n, jimin, hansoo= map(int, input().split())
+
+
+rounds = ceil(log2(n))
+
+
+if jimin > hansoo:
+    mx = jimin
+    mn = hansoo
+else:
+    mx = hansoo
+    mn = jimin
+
+
+result = 0
+for i in range(rounds):
+    if (mx-mn) == 1 and (mn%2) == 1:
+        result = i+1
+        break
+    else:
+        if mx%2 == 1: mx = (mx//2)+1
+        else: mx = mx/2
+
+
+        if mn%2 == 1: mn = (mn//2)+1
+        else: mn = mn/2
+
+
+print(result)
+```
